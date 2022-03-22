@@ -203,7 +203,8 @@ ul {
   line-height: 1.36;
   letter-spacing: 0.06em;
 }
-.hero-btn {
+.hero-btn,
+.modal-send-btn {
   display: block;
   width: 200px;
   margin-left: auto;
@@ -219,11 +220,14 @@ ul {
   font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.06em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
   transition: background-color var(--animation-duration) var(--animation-timing-function);
 }
 .hero-btn:hover,
-.hero-btn:focus {
+.hero-btn:focus,
+.modal-send-btn:hover,
+.modal-send-btn:focus {
   cursor: pointer;
   background-color: #188ce8;
 }
@@ -482,7 +486,8 @@ ul {
 .footer-social-wrapper {
   margin-left: 70px;
 }
-.footer-social-text {
+.footer-social-text,
+.footer-form-text {
   text-transform: uppercase;
   color: #ffffff;
   font-size: 14px;
@@ -521,7 +526,49 @@ ul {
 .footer-link:focus {
   background-color: var(--accent-color);
 }
+.footer-form-wrapper {
+  margin-left: 93px;
+}
+.footer-form {
+  display: flex;
+  margin-top: 20px;
+}
+.user-email {
+  width: 358px;
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
 
+.footer-form-btn {
+  margin-left: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--accent-color);
+  width: 200px;
+  padding: 10px 29px;
+  border: none;
+  border-radius: 4px;
+
+  font-family: var(--main-font-family);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+}
+.footer-form-btn:hover,
+.footer-form-btn:focus {
+  cursor: pointer;
+}
+.form-icon {
+  margin-left: 10px;
+  fill: currentColor;
+}
 /* Портфолио */
 
 .filter-list {
@@ -659,13 +706,16 @@ ul {
   min-width: 528px;
   min-height: 581px;
   background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12);
 
   transition: transform var(--animation-duration) var(--animation-timing-function);
 }
 .backdrop.is-hidden .modal {
   transform: translate(-50%, -50%) scale(0.8);
 }
-.modal-btn {
+.modal-close-btn {
   width: 30px;
   height: 30px;
   background-color: #ffffff;
@@ -678,4 +728,124 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transition: fill var(--animation-duration) var(--animation-timing-function);
+}
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  fill: var(--accent-color);
+}
+.modal-title {
+  font-size: 20px;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+.modal-form {
+  display: flex;
+  flex-direction: column;
+
+  margin: 12px 33px 30px;
+}
+.modal-group {
+  margin-bottom: 10px;
+
+  display: flex;
+  flex-direction: column;
+}
+.modal-group:nth-child(4) {
+  margin-bottom: 20px;
+}
+.modal-label {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: #757575;
+}
+.modal-label:not(:last-child) {
+  margin-bottom: 4px;
+}
+.modal-label:last-child {
+  font-size: 14px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-input,
+.comment {
+  padding: 11px 12px 11px 42px;
+  border-radius: 4px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+
+  transition: outline-color var(--animation-duration) var(--animation-timing-function);
+}
+.modal-group {
+  position: relative;
+}
+.modal-icon {
+  position: absolute;
+  top: 29px;
+  left: 12px;
+
+  margin-right: 12px;
+
+  transition: fill var(--animation-duration) var(--animation-timing-function);
+}
+.modal-input:focus,
+.comment:focus {
+  outline-color: var(--accent-color);
+}
+
+.modal-input:focus + .modal-icon {
+  fill: var(--accent-color);
+}
+
+.comment {
+  padding-left: 12px;
+  resize: none;
+}
+.comment::placeholder {
+  font-size: 12px;
+  color: rgba(117, 117, 117, 0.5);
+}
+.modal-policy {
+  position: relative;
+}
+
+.modal-checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  position: absolute;
+}
+
+.checkbox-icon {
+  display: inline-block;
+  margin-right: 8px;
+
+  transition: fill var(--animation-duration) var(--animation-timing-function);
+}
+.modal-checkbox:focus ~ .checkbox-icon {
+  fill: var(--accent-color);
+}
+
+.checkbox-icon-check {
+  position: absolute;
+  opacity: 0;
+  top: 1;
+  left: 19.4px;
+}
+
+.modal-checkbox:checked ~ .checkbox-icon-check {
+  opacity: 1;
+}
+.modal-checkbox:checked ~ .checkbox-icon {
+  opacity: 0;
+}
+.policy {
+  color: var(--accent-color);
 }
